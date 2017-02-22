@@ -36,6 +36,8 @@ gem 'devise'
 # gem 'capistrano-rails', group: :development
 gem 'omniauth-facebook'
 
+gem 'shoulda'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
