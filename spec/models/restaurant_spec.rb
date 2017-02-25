@@ -12,4 +12,10 @@ describe Restaurant, type: :model do
     restaurant = Restaurant.new(name: "Moe's Tavern")
     expect(restaurant).to have(1).error_on(:name)
   end
+
+  describe User, type: :model do
+    User.new(email: 'test@example.com', password: "123456", password_confirmation: "123456"  )
+    it { is_expected.to validate_presence_of(:email) }
+  end
+
 end

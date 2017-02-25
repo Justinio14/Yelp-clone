@@ -21,15 +21,11 @@ feature 'restaurants' do
     end
   end
 
-  context 'creating restaurants' do
-    scenario 'prompts user to fill out a form, then displays the new restaurant' do
-      sign_up
+  context 'When not signed up ' do
+    scenario 'User tries to create a restaurant' do
       visit '/restaurants'
       click_link 'Add a restaurant'
-      fill_in 'Name', with: 'KFC'
-      click_button 'Create Restaurant'
-      expect(page).to have_content 'KFC'
-      expect(current_path).to eq '/restaurants'
+      expect(current_path).to eq '/users/sign_in'
     end
 
       context 'an invalid restaurant' do
@@ -68,7 +64,6 @@ feature 'restaurants' do
       edit_restaurant
       expect(page).to have_content 'Kentucky Fried Chicken'
       expect(page).to have_content 'Deep fried goodness'
-      # expect(current_path).to eq '/restaurants/1'
     end
   end
 
@@ -86,5 +81,6 @@ feature 'restaurants' do
       expect(page).to have_content 'Restaurant deleted successfully'
     end
   end
+
 
 end
